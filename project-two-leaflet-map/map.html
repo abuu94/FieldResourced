@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Open Class - Field Training Portal</title>
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/dist/css/blog.css" rel="stylesheet" />
+
+    <!-- Map Resources -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="dist/leaflet-routing-machine.css" />
+    <style>
+      .map {
+        border: 2px solid green;
+        border-radius: 12px;
+        align-content: center;
+        width: 100%; /* inachukua upana wote wa parent */
+        max-width: 100%; /* hairuhusu kuzidi container */
+        height: 60vh; /* responsive height kulingana na viewport */
+      }
+    </style>
+  </head>
+  <body class="d-flex flex-column h-100">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="map.html">Open Class</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="flex-shrink-0">
+      <div class="container mt-3">
+        <div class="row mb-3">
+          <div class="col-md-5">
+            <input
+              id="start"
+              type="text"
+              class="form-control"
+              placeholder="Enter start location"
+            />
+          </div>
+          <div class="col-md-5">
+            <input
+              id="end"
+              type="text"
+              class="form-control"
+              placeholder="Enter destination location"
+            />
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-success w-100" onclick="route()">
+              Show Route
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mt-4">
+        <div
+          id="map"
+          class="map w-100"
+          style="height: 600px; padding: 20px"
+        ></div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-dark text-light text-center">
+      <div class="container">
+        <span>&copy; 2026 Open Class - Field Training Portal</span>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Map Javascript Resources -->
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+    <script src="dist/leaflet-routing-machine.js"></script>
+
+    <script src="examples/Control.Geocoder.js"></script>
+
+    <script src="examples/config.js"></script>
+
+    <script>
+      function geocode(address) {
+        return fetch(
+          "https://nominatim.openstreetmap.org/search?format=json&q=" + address,
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.length > 0) {
+              return L.latLng(data[0].lat, data[0].lon);
+            } else {
+              alert("Location not found: " + address);
+              return null;
+            }
+          });
+      }
+
+      async function route() {
+        var startAddress = document.getElementById("start").value;
+        var endAddress = document.getElementById("end").value;
+
+        var startLatLng = await geocode(startAddress);
+        var endLatLng = await geocode(endAddress);
+
+        if (startLatLng && endLatLng) {
+          L.Routing.control({
+            waypoints: [startLatLng, endLatLng],
+            routeWhileDragging: true,
+          }).addTo(map);
+        }
+      }
+
+      var map = L.map("map").setView([-6.162, 39.1916], 12);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors",
+      }).addTo(map);
+
+      L.Routing.control({
+        router: L.Routing.mapbox("mapbox_access_token"),
+        geocoder: L.Control.Geocoder.mapbox("mapbox_access_token"),
+        geocoder: L.Control.Geocoder.photon(),
+      }).addTo(map);
+    </script>
+  </body>
+</html>
