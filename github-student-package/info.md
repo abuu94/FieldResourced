@@ -11,4 +11,8 @@
 
 # Free Domain name
 1. https://www.name.com/partner/github-students
-2. 
+2. https://education.github.com/pack/redeem/namecheap-domain-student
+3. https://www.namecheap.com/
+4.   ssss
+5.   ssss
+6.   sss
