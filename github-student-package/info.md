@@ -33,3 +33,6 @@
 
 # CI /CD
 1. https://app.travis-ci.com/dashboard
+
+# Disposable email:
+1. https://testmail.app/signup/?next=github-students
