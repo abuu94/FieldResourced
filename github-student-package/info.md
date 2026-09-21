@@ -15,4 +15,8 @@
 3. https://www.namecheap.com/
 4.   ssss
 5.   ssss
-6.   sss
+
+
+# Cloud-Scale Monitoring for Students:
+1. DataDog https://studentpack.datadoghq.com/create
+2. https://us5.datadoghq.com/
