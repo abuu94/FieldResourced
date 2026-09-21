@@ -30,3 +30,6 @@
 # Tools for Devs
 1. https://polypane.app/github-students/
 2. 
+
+# CI /CD
+1. https://app.travis-ci.com/dashboard
