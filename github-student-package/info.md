@@ -20,3 +20,13 @@
 # Cloud-Scale Monitoring for Students:
 1. DataDog https://studentpack.datadoghq.com/create
 2. https://us5.datadoghq.com/
+3. ss
+
+# Firebase Alternative:
+1. https://appwrite.io/
+2. www
+
+
+# Tools for Devs
+1. https://polypane.app/github-students/
+2. 
