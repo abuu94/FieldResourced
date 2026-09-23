@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>API Landing Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f8;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      header {
+        background-color: #2c3e50;
+        color: white;
+        padding: 2rem 0;
+      }
+      h1 {
+        margin: 0;
+        font-size: 2.5rem;
+      }
+      .nav-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 2rem auto;
+        max-width: 800px;
+      }
+      .nav-item {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 1rem 2rem;
+        transition: transform 0.2s;
+      }
+      .nav-item:hover {
+        transform: scale(1.05);
+      }
+      a {
+        text-decoration: none;
+        color: #3498db;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+      footer {
+        margin-top: 4rem;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to Staff Info System Backend API</h1>
+      <p>Explore BoilerPlate to build Staff Info System Applications</p>
+    </header>
+
+    <div class="nav-container">
+      <div class="nav-item">
+        <a href="/api/" target="_blank">🔗 API Root</a>
+      </div>
+
+      <div class="nav-item">
+        <a href="/swagger/" target="_blank">📘 Swagger Docs</a>
+      </div>
+      <div class="nav-item">
+        <a href="/redoc/" target="_blank">📗 ReDoc Docs</a>
+      </div>
+      <div class="nav-item">
+        <a href="/admin/" target="_blank">📗 Django Admin Page</a>
+      </div>
+    </div>
+
+    <footer>&copy; 2026 Contact: abuu.yus@gmail.com.</footer>
+  </body>
+</html>
